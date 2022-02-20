@@ -39,8 +39,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void titleTest() {
-
-        open("https://www.amazon.com/");
+        mainpages.openMainPage();
 
         step("Тайтл страницы равен 'Amazon.com. Spend less. Smile more.'", () -> {
             String expectedTitle = "Amazon.com. Spend less. Smile more.";
