@@ -56,10 +56,3 @@ tasks.withType(Test) {
         }
     }
 }
-
-task web_test(type: Test) {
-    systemProperty("remoteURL", System.getProperty("remoteURL", ""))
-    useJUnitPlatform {
-        includeTags "Web"
-    }
-}

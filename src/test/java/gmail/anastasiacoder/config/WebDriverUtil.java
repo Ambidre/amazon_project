@@ -30,16 +30,16 @@ public class WebDriverUtil {
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-gpu");
 
-//        if (!System.getProperty("remoteURL").equals("")) {
-//            capabilities.setCapability("enableVNC", true);
-//            capabilities.setCapability("enableVideo", true);
-//            Configuration.remote = REMOTE_URL;
-//            //Configuration.remote = System.getProperty("remoteURL");
-//        }
+        if (!System.getProperty("remoteURL").equals("")) {
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+            Configuration.remote = REMOTE_URL;
+            //Configuration.remote = System.getProperty("remoteURL");
+        }
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         Configuration.browserCapabilities = capabilities;
-//        Configuration.timeout = 10000;
-//        Configuration.pageLoadTimeout = 10000;
+        Configuration.timeout = 20000;
+        Configuration.pageLoadTimeout = 20000;
     }
 }
