@@ -85,7 +85,7 @@ public class AmazonTest extends TestBase {
 
     @ValueSource(strings = {"Oculus Quest 2 — Advanced All-In-One Virtual Reality Headset — 256 GB",
             "Oculus Quest 2 — Advanced All-In-One Virtual Reality Headset — 128 GB"})
-    @DisplayName("13Результаты поиска")
+    @DisplayName("Результаты поиска")
     @Tags({@Tag("Blocker"), @Tag("High")})
     @Microservice("Search Results")
     @ParameterizedTest(name = "Отображение товара {0} в результатах поиска")
@@ -108,7 +108,7 @@ public class AmazonTest extends TestBase {
             "Gaming chair | Gaming Chairs",
             "bloody a90 gaming mouse | PC Accessories"
     }, delimiter = '|')
-    @DisplayName("14Фильтр 'Категория'")
+    @DisplayName("Фильтр 'Категория'")
     @Tags({@Tag("Minor"), @Tag("Low")})
     @Microservice("Filter Category")
     @ParameterizedTest(name = "Отображение категории {1} в фильтре 'Категория'")
