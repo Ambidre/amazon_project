@@ -13,8 +13,8 @@ public class WebDriverUtil {
     private static final CredentialsConfig CREDENTIALS = ConfigFactory.create(CredentialsConfig.class);
     private static final String LOGIN = CREDENTIALS.login();
     private static final String PASSWORD = CREDENTIALS.password();
-    private static final String SELENOID_URL = CREDENTIALS.remoteURL();
-    private static final String REMOTE_URL = format("https://%s:%s@selenoid.autotests.cloud/wd/hub/", LOGIN, PASSWORD);
+    private static final String SELENOID_URL = System.getProperty("remoteURL");
+    private static final String REMOTE_URL = format("https://%s:%s@%s", LOGIN, PASSWORD, SELENOID_URL);
 
     public static void configure() {
         Configuration.browser = CONFIG.browser();
@@ -39,7 +39,7 @@ public class WebDriverUtil {
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         Configuration.browserCapabilities = capabilities;
-//        Configuration.timeout = 20000;
-//        Configuration.pageLoadTimeout = 20000;
+//        Configuration.timeout = 10000;
+//        Configuration.pageLoadTimeout = 10000;
     }
 }
