@@ -26,7 +26,7 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.attachVideo();
+        Attach.addVideo();
         step("Закрыть браузер", () -> {
             Selenide.closeWebDriver();
         });
