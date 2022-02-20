@@ -23,12 +23,12 @@ public class WebDriverUtil {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
-//
-//        chromeOptions.addArguments("--no-sandbox");
-//        chromeOptions.addArguments("--enable-automation");
-//        chromeOptions.addArguments("--disable-popup-blocking");
-//        chromeOptions.addArguments("--disable-notifications");
-//        chromeOptions.addArguments("--disable-gpu");
+
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--enable-automation");
+        chromeOptions.addArguments("--disable-popup-blocking");
+        chromeOptions.addArguments("--disable-notifications");
+        chromeOptions.addArguments("--disable-gpu");
 
         if (!System.getProperty("remoteURL").equals("")) {
             capabilities.setCapability("enableVNC", true);
