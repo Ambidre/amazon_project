@@ -24,7 +24,6 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Layer("web")
-@Owner("Ambidre")
 @Tags({@Tag("Web"), @Tag("UI")})
 @JiraIssues({@JiraIssue("HOMEWORK-344")})
 @DisplayName("Тестирование веб-приложения Amazon")
@@ -34,6 +33,7 @@ public class AmazonTest extends TestBase {
     @DisplayName("У главной страницы есть тайтл")
     @Tags({@Tag("Blocker"), @Tag("High")})
     @Microservice("Menu Item")
+    @Owner("Ambidre")
     @Feature("Меню")
     @Story("Панель пунктов меню")
     @Severity(SeverityLevel.BLOCKER)
@@ -48,10 +48,11 @@ public class AmazonTest extends TestBase {
         });
     }
 
-    @Microservice("Footer")
     @MethodSource("gmail.anastasiacoder.tests.Footer#footerColumns")
     @DisplayName("Отображение значений")
     @Tags({@Tag("Blocker"), @Tag("High")})
+    @Microservice("Footer")
+    @Owner("Ambidre")
     @ParameterizedTest(name = "{displayName} {1} в футере сайта у колонки с названием {0}")
     @Feature("Футер")
     @Story("Футер основной страницы Amazon")
@@ -70,6 +71,7 @@ public class AmazonTest extends TestBase {
     @DisplayName("Пункты меню неавторизованного пользователя")
     @Tags({@Tag("Blocker"), @Tag("High")})
     @Microservice("Menu Item")
+    @Owner("Ambidre")
     @ParameterizedTest(name = "Отображение пункта меню {0}")
     @Feature("Меню")
     @Story("Панель пунктов меню")
@@ -88,6 +90,7 @@ public class AmazonTest extends TestBase {
     @DisplayName("Результаты поиска")
     @Tags({@Tag("Blocker"), @Tag("High")})
     @Microservice("Search Results")
+    @Owner("Ambidre")
     @ParameterizedTest(name = "Отображение товара {0} в результатах поиска")
     @Feature("Поиск")
     @Story("Страница результатов поиска")
@@ -111,6 +114,7 @@ public class AmazonTest extends TestBase {
     @DisplayName("Фильтр 'Категория'")
     @Tags({@Tag("Minor"), @Tag("Low")})
     @Microservice("Filter Category")
+    @Owner("Ambidre")
     @ParameterizedTest(name = "Отображение категории {1} в фильтре 'Категория'")
     @Feature("Фильтры")
     @Story("Блок фильтров")
@@ -131,6 +135,7 @@ public class AmazonTest extends TestBase {
     @DisplayName("Обзор по категориям на основной странице категории товара")
     @Tags({@Tag("Minor"), @Tag("Low")})
     @Microservice("Overview By Category")
+    @Owner("Ambidre")
     @ParameterizedTest(name = "Отображение категорий {1} в обзоре по категориям на странице {0}")
     @Feature("Категории")
     @Story("Блок обзора по категориям")
