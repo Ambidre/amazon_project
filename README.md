@@ -79,7 +79,7 @@ gradle clean test
 > <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты (_по умолчанию - <code>1920x1080</code>_).
 >
 > <code>THREADS</code> – количество потоков для запуска тестов.
-## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Для запусков автотестов используется [Jenkins](https://jenkins.autotests.cloud/job/09-Ambidre-mobile_tests/)
+## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Для запусков автотестов используется [Jenkins](https://jenkins.autotests.cloud/job/09-Ambidre-amazon_project/)
 
 ![Jenkins](images/screens/jenkins.png)
 
@@ -101,7 +101,7 @@ gradle clean test
 
 ![Jenkins_Allure_Reports](images/screens/allure_detailes.png)
 
-## <img width="4%" title="Allure TestOps" src="images/logo/Allure_TestOps.svg"> Интеграция тестов c тест-менеджмент системой [Allure TestOps](https://allure.autotests.cloud/jobrun/9938)
+## <img width="4%" title="Allure TestOps" src="images/logo/Allure_TestOps.svg"> Интеграция тестов c тест-менеджмент системой [Allure TestOps](https://allure.autotests.cloud/project/1038/dashboards)
 
 > <code>Allure TestOps</code> используется для хранения всех авто и ручных тестов, запусков и их результатов, а также статистики и отчетов.
 
@@ -133,7 +133,7 @@ gradle clean test
 
 ![Allure TestOps](images/screens/allure_testcases.png)
 
-## <img width="4%" title="Jira" src="images/logo/Jira.svg"> Интеграция тестов c таск-трекер системой [Jira](https://jira.autotests.cloud/browse/HOMEWORK-336)
+## <img width="4%" title="Jira" src="images/logo/Jira.svg"> Интеграция тестов c таск-трекер системой [Jira](https://jira.autotests.cloud/browse/HOMEWORK-344)
 
 > Интеграция с <code>Jira</code> позволяет добавлять в задачи тест-кейсы, запуски и их результаты.
 
