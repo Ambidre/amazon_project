@@ -17,9 +17,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.texts;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -39,13 +36,8 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void titleTest() {
-        mainpages.openMainPage();
-
-        step("Тайтл страницы равен 'Amazon.com. Spend less. Smile more.'", () -> {
-            String expectedTitle = "Amazon.com. Spend less. Smile more.";
-            String actualTitle = title();
-            assertThat(actualTitle).isEqualTo(expectedTitle);
-        });
+        mainpages.openMainPage()
+                 .checkTitle();
     }
 
     @MethodSource("gmail.anastasiacoder.tests.Footer#footerColumns")
@@ -59,12 +51,8 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayValuesInTheFooterTest(String nameColumnFooter, List<String> footerColumns) {
-        mainpages.openMainPage();
-
-        step("Перейти в категорию " + nameColumnFooter, () -> {
-            $$("div.navFooterLinkCol").find(text(nameColumnFooter)).$$("li")
-                    .shouldHave(texts(footerColumns));
-        });
+        mainpages.openMainPage()
+                 .checkInformationInFooter(nameColumnFooter, footerColumns);
     }
 
     @EnumSource(ProfileMenu.class)
@@ -78,11 +66,8 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfAnonymousMenuItemTest(ProfileMenu profileMenu) {
-        mainpages.openMainPage();
-
-        step("Найти отображение пункта меню " + profileMenu + " в навигационной панели", () -> {
-            $x("//a[@data-csa-c-type='link'] [@class='nav-a  ']").shouldHave(text(profileMenu.getProfileMenu()));
-        });
+        mainpages.openMainPage()
+                 .checkMenuItems(profileMenu);
     }
 
     @ValueSource(strings = {"Oculus Quest 2 — Advanced All-In-One Virtual Reality Headset — 256 GB",
@@ -97,14 +82,9 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void searchResultsTest(String searchQuery) {
-        mainpages.openMainPage();
-
-        step("Найти системы VR Oculus Quest 2", () -> {
-           $ ("#twotabsearchtextbox").setValue("Oculus quest 2").pressEnter();
-        });
-        step("Найти отображение товара " + searchQuery + " в результатах поиска", () -> {
-            $$("div.s-main-slot").shouldHave(texts(searchQuery));
-        });
+        mainpages.openMainPage()
+                .searchProduct("Oculus quest 2")
+                .checkResult(searchQuery);
     }
 
     @CsvSource(value = {
@@ -121,14 +101,9 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void filterCategoryTest(String searchQuery, String categoryName) {
-        mainpages.openMainPage();
-
-        step("Найти товар " + searchQuery, () -> {
-            $("#twotabsearchtextbox").setValue(searchQuery).pressEnter();
-        });
-        step("Найти отображение категории " + categoryName + " в фильтре 'Категория'", () -> {
-            $("#departments").shouldHave(text(categoryName));
-        });
+        mainpages.openMainPage()
+                 .searchProduct(searchQuery)
+                 .checkDepartment(categoryName);
     }
 
     @MethodSource("gmail.anastasiacoder.tests.Category#productCategories")
@@ -142,17 +117,10 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfTheOverviewByCategoryTest(String category, List<String> productCategories) {
-        mainpages.openMainPage();
-
-        step("Открыть каталог товаров", () -> {
-            $("#nav-hamburger-menu").click();
-        });
-        step("Перейти в категорию " + category, () -> {
-            $$(".hmenu-item").find(text(category)).click();
-        });
-        step("Найти отбражение категории " + productCategories + " в обзоре по категориям", () -> {
-            $$x("//span[@class='topic-btn']").shouldHave(texts(productCategories));
-        });
+        mainpages.openMainPage()
+                 .openCatalog()
+                 .openCategory(category)
+                 .checkCategory(productCategories);
     }
 
     @Test
@@ -170,7 +138,6 @@ public class AmazonTest extends TestBase {
         step("Проверить отсутствие текста 'SEVERE' в консоли", () -> {
             String consoleLogs = Attach.browserConsoleLogs();
             String errorText = "SEVERE";
-
             assertThat(consoleLogs).doesNotContain(errorText);
         });
     }
