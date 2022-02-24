@@ -1,4 +1,4 @@
-package com.amazon.tests;
+package com.amazon.test_data;
 
 public enum ProfileMenu {
 
