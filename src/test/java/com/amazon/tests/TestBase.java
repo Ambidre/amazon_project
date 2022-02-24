@@ -4,7 +4,7 @@ import com.amazon.helpers.Attach;
 import com.amazon.pageobjects.MainPage;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import com.amazon.config.WebDriverUtil;
+import com.amazon.config.LocalDriverUtil;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,7 +18,7 @@ public class TestBase {
     @BeforeAll
     public static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        WebDriverUtil.configure();
+        LocalDriverUtil.configure();
     }
 
     @AfterEach

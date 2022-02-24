@@ -7,9 +7,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static java.lang.String.format;
 
-public class WebDriverUtil {
+public class LocalDriverUtil {
 
-    private static final WebDriverConfig CONFIG = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
+    private static final LocalConfig CONFIG = ConfigFactory.create(LocalConfig.class, System.getProperties());
     private static final CredentialsConfig CREDENTIALS = ConfigFactory.create(CredentialsConfig.class);
     private static final String LOGIN = CREDENTIALS.login();
     private static final String PASSWORD = CREDENTIALS.password();
