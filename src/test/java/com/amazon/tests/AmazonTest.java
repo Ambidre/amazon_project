@@ -5,6 +5,7 @@ import com.amazon.annotations.JiraIssue;
 import com.amazon.annotations.JiraIssues;
 import com.amazon.annotations.Layer;
 import com.amazon.annotations.Microservice;
+import com.amazon.test_data.ProfileMenu;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -40,7 +41,7 @@ public class AmazonTest extends TestBase {
                  .checkTitle();
     }
 
-    @MethodSource("com.amazon.tests.Footer#footerColumns")
+    @MethodSource("com.amazon.test_data.Footer#footerColumns")
     @DisplayName("Отображение значений")
     @Tags({@Tag("Blocker"), @Tag("High")})
     @Microservice("Footer")
@@ -83,8 +84,8 @@ public class AmazonTest extends TestBase {
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void searchResultsTest(String searchQuery) {
         mainPage.open()
-                .searchProduct("Oculus quest 2")
-                .checkResult(searchQuery);
+                .searchProduct("Oculus quest 2");
+        searchPage.checkResult(searchQuery);
     }
 
     @CsvSource(value = {
@@ -102,11 +103,11 @@ public class AmazonTest extends TestBase {
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void filterCategoryTest(String searchQuery, String categoryName) {
         mainPage.open()
-                 .searchProduct(searchQuery)
-                 .checkDepartment(categoryName);
+                 .searchProduct(searchQuery);
+        searchPage.checkDepartment(categoryName);
     }
 
-    @MethodSource("com.amazon.tests.Category#productCategories")
+    @MethodSource("com.amazon.test_data.Category#productCategories")
     @DisplayName("Обзор по категориям на основной странице категории товара")
     @Tags({@Tag("Minor"), @Tag("Low")})
     @Microservice("Overview By Category")
@@ -118,9 +119,9 @@ public class AmazonTest extends TestBase {
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfTheOverviewByCategoryTest(String category, List<String> productCategories) {
         mainPage.open()
-                 .openCatalog()
-                 .openCategory(category)
-                 .checkCategory(productCategories);
+                 .openCatalog();
+        catalogPage.openCategory(category)
+                   .checkCategory(productCategories);
     }
 
     @Test
