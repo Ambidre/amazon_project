@@ -36,7 +36,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void titleTest() {
-        mainPage.openMainPage()
+        mainPage.open()
                  .checkTitle();
     }
 
@@ -51,7 +51,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayValuesInTheFooterTest(String nameColumnFooter, List<String> footerColumns) {
-        mainPage.openMainPage()
+        mainPage.open()
                  .checkInformationInFooter(nameColumnFooter, footerColumns);
     }
 
@@ -66,7 +66,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfAnonymousMenuItemTest(ProfileMenu profileMenu) {
-        mainPage.openMainPage()
+        mainPage.open()
                  .checkMenuItems(profileMenu);
     }
 
@@ -82,7 +82,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void searchResultsTest(String searchQuery) {
-        mainPage.openMainPage()
+        mainPage.open()
                 .searchProduct("Oculus quest 2")
                 .checkResult(searchQuery);
     }
@@ -101,7 +101,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void filterCategoryTest(String searchQuery, String categoryName) {
-        mainPage.openMainPage()
+        mainPage.open()
                  .searchProduct(searchQuery)
                  .checkDepartment(categoryName);
     }
@@ -117,7 +117,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfTheOverviewByCategoryTest(String category, List<String> productCategories) {
-        mainPage.openMainPage()
+        mainPage.open()
                  .openCatalog()
                  .openCategory(category)
                  .checkCategory(productCategories);
@@ -133,7 +133,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void consoleShouldNotHaveErrorsTest() {
-        mainPage.openMainPage();
+        mainPage.open();
 
         step("Проверить отсутствие текста 'SEVERE' в консоли", () -> {
             String consoleLogs = Attach.browserConsoleLogs();

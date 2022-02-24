@@ -1,6 +1,7 @@
 package com.amazon.pageobjects;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.amazon.tests.ProfileMenu;
 import io.qameta.allure.Step;
@@ -27,8 +28,8 @@ public class MainPage {
             categoryDisplaySelector = $$x("//span[@class='topic-btn']");
 
     @Step("Открыть главную страницу amazon ")
-    public MainPage openMainPage() {
-        open("https://www.amazon.com/");
+    public MainPage open() {
+        Selenide.open("https://www.amazon.com/");
         return this;
     }
 
