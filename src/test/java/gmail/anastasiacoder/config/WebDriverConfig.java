@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "file:/tmp/credentials.properties",
+        //"file:/tmp/credentials.properties",
         "classpath:config/local.properties"
 })public interface WebDriverConfig extends Config {
 
@@ -14,7 +14,7 @@ import org.aeonbits.owner.Config;
     String browser();
 
     @Key("versionBrowser")
-    @DefaultValue("96.0")
+    @DefaultValue("91.0")
     String versionBrowser();
 
     @Key("browserSize")
