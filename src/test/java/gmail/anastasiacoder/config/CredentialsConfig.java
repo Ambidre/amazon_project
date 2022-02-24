@@ -14,7 +14,4 @@ import org.aeonbits.owner.Config;
 
     @Key("password")
     String password();
-
-    @Key("remoteURL")
-    String remoteURL();
 }
