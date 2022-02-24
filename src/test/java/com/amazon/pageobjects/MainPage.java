@@ -1,8 +1,8 @@
-package gmail.anastasiacoder.steps;
+package com.amazon.pageobjects;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import gmail.anastasiacoder.tests.ProfileMenu;
+import com.amazon.tests.ProfileMenu;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static gmail.anastasiacoder.tests.TestData.*;
+import static com.amazon.tests.TestData.*;
 
 public class MainPage {
 

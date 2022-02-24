@@ -1,4 +1,4 @@
-package gmail.anastasiacoder.tests;
+package com.amazon.tests;
 
 import org.junit.jupiter.params.provider.Arguments;
 

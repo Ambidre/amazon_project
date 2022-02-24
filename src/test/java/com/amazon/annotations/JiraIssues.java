@@ -1,6 +1,4 @@
-package gmail.anastasiacoder.annotations;
-
-import gmail.anastasiacoder.annotations.JiraIssue;
+package com.amazon.annotations;
 
 import java.lang.annotation.*;
 

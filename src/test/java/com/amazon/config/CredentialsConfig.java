@@ -1,4 +1,4 @@
-package gmail.anastasiacoder.config;
+package com.amazon.config;
 
 import org.aeonbits.owner.Config;
 
@@ -8,9 +8,7 @@ import org.aeonbits.owner.Config;
         "classpath:config/credentials.properties"
 })public interface CredentialsConfig extends Config {
 
-    @Key("login")
     String login();
 
-    @Key("password")
     String password();
 }

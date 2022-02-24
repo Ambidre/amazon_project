@@ -1,4 +1,4 @@
-package gmail.anastasiacoder.config;
+package com.amazon.config;
 
 import com.codeborne.selenide.Configuration;
 import org.aeonbits.owner.ConfigFactory;

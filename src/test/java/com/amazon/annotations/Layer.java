@@ -1,20 +1,15 @@
-package gmail.anastasiacoder.annotations;
+package com.amazon.annotations;
 
 import io.qameta.allure.LabelAnnotation;
 
 import java.lang.annotation.*;
 
-/**
- * @author eroshenkoam (Artem Eroshenko).
- */
+
 @Documented
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-@Repeatable(JiraIssues.class)
-@LabelAnnotation(name = "jira")
-public @interface JiraIssue {
-
+@LabelAnnotation(name = "layer")
+public @interface Layer {
     String value();
-
 }

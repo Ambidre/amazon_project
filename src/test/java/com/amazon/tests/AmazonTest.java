@@ -1,10 +1,10 @@
-package gmail.anastasiacoder.tests;
+package com.amazon.tests;
 
-import gmail.anastasiacoder.annotations.JiraIssue;
-import gmail.anastasiacoder.annotations.JiraIssues;
-import gmail.anastasiacoder.annotations.Layer;
-import gmail.anastasiacoder.annotations.Microservice;
-import gmail.anastasiacoder.helpers.Attach;
+import com.amazon.helpers.Attach;
+import com.amazon.annotations.JiraIssue;
+import com.amazon.annotations.JiraIssues;
+import com.amazon.annotations.Layer;
+import com.amazon.annotations.Microservice;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -36,11 +36,11 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void titleTest() {
-        mainpages.openMainPage()
+        mainPage.openMainPage()
                  .checkTitle();
     }
 
-    @MethodSource("gmail.anastasiacoder.tests.Footer#footerColumns")
+    @MethodSource("com.amazon.tests.Footer#footerColumns")
     @DisplayName("Отображение значений")
     @Tags({@Tag("Blocker"), @Tag("High")})
     @Microservice("Footer")
@@ -51,7 +51,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayValuesInTheFooterTest(String nameColumnFooter, List<String> footerColumns) {
-        mainpages.openMainPage()
+        mainPage.openMainPage()
                  .checkInformationInFooter(nameColumnFooter, footerColumns);
     }
 
@@ -66,7 +66,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfAnonymousMenuItemTest(ProfileMenu profileMenu) {
-        mainpages.openMainPage()
+        mainPage.openMainPage()
                  .checkMenuItems(profileMenu);
     }
 
@@ -82,7 +82,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void searchResultsTest(String searchQuery) {
-        mainpages.openMainPage()
+        mainPage.openMainPage()
                 .searchProduct("Oculus quest 2")
                 .checkResult(searchQuery);
     }
@@ -101,12 +101,12 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void filterCategoryTest(String searchQuery, String categoryName) {
-        mainpages.openMainPage()
+        mainPage.openMainPage()
                  .searchProduct(searchQuery)
                  .checkDepartment(categoryName);
     }
 
-    @MethodSource("gmail.anastasiacoder.tests.Category#productCategories")
+    @MethodSource("com.amazon.tests.Category#productCategories")
     @DisplayName("Обзор по категориям на основной странице категории товара")
     @Tags({@Tag("Minor"), @Tag("Low")})
     @Microservice("Overview By Category")
@@ -117,7 +117,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfTheOverviewByCategoryTest(String category, List<String> productCategories) {
-        mainpages.openMainPage()
+        mainPage.openMainPage()
                  .openCatalog()
                  .openCategory(category)
                  .checkCategory(productCategories);
@@ -133,7 +133,7 @@ public class AmazonTest extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Amazon", url = "https://www.amazon.com/")
     void consoleShouldNotHaveErrorsTest() {
-        mainpages.openMainPage();
+        mainPage.openMainPage();
 
         step("Проверить отсутствие текста 'SEVERE' в консоли", () -> {
             String consoleLogs = Attach.browserConsoleLogs();

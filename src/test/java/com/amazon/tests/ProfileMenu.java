@@ -1,4 +1,4 @@
-package gmail.anastasiacoder.tests;
+package com.amazon.tests;
 
 public enum ProfileMenu {
 

@@ -1,10 +1,10 @@
-package gmail.anastasiacoder.tests;
+package com.amazon.tests;
 
+import com.amazon.helpers.Attach;
+import com.amazon.pageobjects.MainPage;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import gmail.anastasiacoder.config.WebDriverUtil;
-import gmail.anastasiacoder.helpers.Attach;
-import gmail.anastasiacoder.steps.MainPage;
+import com.amazon.config.WebDriverUtil;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,7 +13,7 @@ import static io.qameta.allure.Allure.step;
 
 public class TestBase {
 
-    MainPage mainpages = new MainPage();
+    MainPage mainPage = new MainPage();
 
     @BeforeAll
     public static void setup() {

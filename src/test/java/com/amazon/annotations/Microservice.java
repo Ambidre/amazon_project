@@ -1,4 +1,4 @@
-package gmail.anastasiacoder.annotations;
+package com.amazon.annotations;
 
 import io.qameta.allure.LabelAnnotation;
 
