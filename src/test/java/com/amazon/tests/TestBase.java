@@ -32,8 +32,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        step("Закрыть браузер", () -> {
-            Selenide.closeWebDriver();
-        });
+        Selenide.closeWebDriver();
     }
 }
