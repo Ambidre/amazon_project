@@ -35,7 +35,6 @@ public class AmazonTest extends TestBase {
     @Feature("Меню")
     @Story("Панель пунктов меню")
     @Severity(SeverityLevel.BLOCKER)
-    @Link(name = "Amazon", url = "https://www.amazon.com/")
     void titleTest() {
         mainPage.open()
                  .checkTitle();
@@ -50,7 +49,6 @@ public class AmazonTest extends TestBase {
     @Feature("Футер")
     @Story("Футер основной страницы Amazon")
     @Severity(SeverityLevel.BLOCKER)
-    @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayValuesInTheFooterTest(String nameColumnFooter, List<String> footerColumns) {
         mainPage.open()
                  .checkInformationInFooter(nameColumnFooter, footerColumns);
@@ -65,7 +63,6 @@ public class AmazonTest extends TestBase {
     @Feature("Меню")
     @Story("Панель пунктов меню")
     @Severity(SeverityLevel.BLOCKER)
-    @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfAnonymousMenuItemTest(ProfileMenu profileMenu) {
         mainPage.open()
                  .checkMenuItems(profileMenu);
@@ -81,7 +78,6 @@ public class AmazonTest extends TestBase {
     @Feature("Поиск")
     @Story("Страница результатов поиска")
     @Severity(SeverityLevel.BLOCKER)
-    @Link(name = "Amazon", url = "https://www.amazon.com/")
     void searchResultsTest(String searchQuery) {
         mainPage.open()
                 .searchProduct("Oculus quest 2");
@@ -100,7 +96,6 @@ public class AmazonTest extends TestBase {
     @Feature("Фильтры")
     @Story("Блок фильтров")
     @Severity(SeverityLevel.MINOR)
-    @Link(name = "Amazon", url = "https://www.amazon.com/")
     void filterCategoryTest(String searchQuery, String categoryName) {
         mainPage.open()
                  .searchProduct(searchQuery);
@@ -116,7 +111,6 @@ public class AmazonTest extends TestBase {
     @Feature("Категории")
     @Story("Блок обзора по категориям")
     @Severity(SeverityLevel.MINOR)
-    @Link(name = "Amazon", url = "https://www.amazon.com/")
     void displayOfTheOverviewByCategoryTest(String category, List<String> productCategories) {
         mainPage.open()
                  .openCatalog();
@@ -132,7 +126,6 @@ public class AmazonTest extends TestBase {
     @Feature("Консоль")
     @Story("Журнал консоли")
     @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Amazon", url = "https://www.amazon.com/")
     void consoleShouldNotHaveErrorsTest() {
         mainPage.open();
 
